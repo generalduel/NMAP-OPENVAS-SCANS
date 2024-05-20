@@ -25,7 +25,7 @@ def nmap_scan(targets):
                         for script_name, output in nm[host][proto][port]['script'].items():
                             print(f"  {script_name}: {output}\n")
         
-        with open(f'Nmap/results/nmap_scan_results_{target}.txt', 'w') as f:
+        with open(f'../results/nmap_scan_results_{target}.txt', 'w') as f:
             f.write(str(scan_data))
         
         print(f"Scan results for {target} saved to nmap_scan_results_{target}.txt\n")

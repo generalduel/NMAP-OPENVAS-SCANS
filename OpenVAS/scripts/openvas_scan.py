@@ -42,7 +42,7 @@ def openvas_scan(targets):
 
             # Print and save the report
             pretty_print(report)
-            with open(f'OpenVAS/results/openvas_scan_results_{target}.xml', 'wb') as f:
+            with open(f'../results/openvas_scan_results_{target}.xml', 'wb') as f:
                 f.write(report)
 
             print(f"Scan results for {target} saved to openvas_scan_results_{target}.xml\n")

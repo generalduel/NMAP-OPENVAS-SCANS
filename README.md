@@ -32,28 +32,35 @@ pip install python-nmap
 Clone this repository to your local machine:
 ```bash
 git clone https://github.com/iaskeyz69/NMAP-OPENVAS-SCANS.git
-cd NMAP-OPENVAS-SCANS/Nmap/scripts
+cd NMAP-OPENVAS-SCANS
 ```
-
-### 2. Run the Nmap Scan Script
+### 2. Create results folder
+Create a Directory/Folder called results:
+```bash
+cd NMAP-OPENVAS-SCANS/Nmap/
+mkdir results
+```
+### 3. Run the Nmap Scan Script
 The script nmap_scan.py can scan a single IP, a range of IPs, or an entire network.
 
 ***Scan a Single IP***
 To scan a single IP address, run the script as follows:
 ```bash
-python nmap_scan.py 192.168.1.1
+cd NMAP-OPENVAS-SCANS/Nmap/scripts
+python3 nmap_scan.py 192.168.1.1
 ```
 
 ***Scan Network Range***
 To scan a range of IP addresses within a network, run the script with the network range in CIDR notation:
 ```bash
-python nmap_scan.py 192.168.1.0/24
+python3 nmap_scan.py 192.168.1.0/24
 ```
 
-### 3. Find the Results
+### 4. Find the Results
 The results of the scan will be saved in the results directory with filenames in the format nmap_scan_results_<IP>.txt.
 ```bash
-python nmap_scan.py 192.168.1.0/24
+cd NMAP-OPENVAS-SCANS/Nmap/results
+ls
 ```
 
 This will scan the entire 192.168.1.0/24 network and save each IP's scan results to a separate file in the results directory.
@@ -100,26 +107,33 @@ Clone this repository to your local machine:
 git clone https://github.com/iaskeyz69/NMAP-OPENVAS-SCANS.git
 cd NMAP-OPENVAS-SCANS/OpenVAS/scripts
 ```
+### 4. Create results folder
+Create a Directory/Folder called results:
+```bash
+cd NMAP-OPENVAS-SCANS/OpenVAS/
+mkdir results
+```
 
-### 4. Run the Nmap Scan Script
+### 5. Run the Nmap Scan Script
 The script openvas_scan.py can scan a single IP, a range of IPs, or an entire network.
 
 ***Scan a Single IP***
 To scan a single IP address, run the script as follows:
 ```bash
-python openvas_scan.py 192.168.1.1
+python3 openvas_scan.py 192.168.1.1
 ```
 
 ***Scan Network Range***
 To scan a range of IP addresses within a network, run the script with the network range in CIDR notation:
 ```bash
-python openvas_scan.py 192.168.1.0/24
+python3 openvas_scan.py 192.168.1.0/24
 ```
 
-### 3. Find the Results
-The results of the scan will be saved in the results directory with filenames in the format nmap_scan_results_<IP>.txt.
+### 6. Find the Results
+The results of the scan will be saved in the results directory with filenames in the format openvas_scan_results_<IP>.xml.
 ```bash
-python openvas_scan.py 192.168.1.0/24
+cd NMAP-OPENVAS-SCANS/OpenVAS/results
+ls
 ```
 
 This will scan the entire 192.168.1.0/24 network and save each IP's scan results to a separate file in the results directory.
