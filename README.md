@@ -92,7 +92,7 @@ Install the required libraries using pip:
 pip install gvm-tools python-gvm
 ```
 ### 2. Set Up and Configure OpenVAS
-Ensure OpenVAS is set up and running on your machine. Refer to the OpenVAS documentation for installation and configuration instructions.
+Ensure OpenVAS is set up and running on your machine. Refer to the [OpenVAS documentation](https://greenbone.github.io/docs/latest/) for installation and configuration instructions.
 
 ### 3. Clone the Repository
 Clone this repository to your local machine:
