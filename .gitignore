@@ -11,7 +11,7 @@ venv/
 Thumbs.db
 
 # Ignore Nmap scan results
-EthicalHacking-Tools/Nmap/results/*.txt
+Nmap/results/*.txt
 
 # Ignore OpenVAS scan results
-EthicalHacking-Tools/OpenVAS/results/*.xml
+OpenVAS/results/*.xml
