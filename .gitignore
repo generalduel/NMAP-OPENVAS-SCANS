@@ -1,0 +1,17 @@
+# Ignore Python compiled files
+*.pyc
+__pycache__/
+
+# Ignore virtual environments
+venv/
+.env/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Nmap scan results
+EthicalHacking-Tools/Nmap/results/*.txt
+
+# Ignore OpenVAS scan results
+EthicalHacking-Tools/OpenVAS/results/*.xml
