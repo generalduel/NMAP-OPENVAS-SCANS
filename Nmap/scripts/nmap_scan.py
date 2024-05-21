@@ -2,6 +2,7 @@ import nmap
 import argparse
 from ipaddress import ip_network
 import socket
+import json
 
 def resolve_targets(targets):
     resolved_ips = []
@@ -22,22 +23,29 @@ def nmap_scan(targets):
         
         scan_data = nm.analyse_nmap_xml_scan()
         
+        formatted_output = ""
         for host in nm.all_hosts():
-            print(f"Host: {host} ({nm[host].hostname()})\n")
-            print(f"State: {nm[host].state()}\n")
+            formatted_output += f"Host: {host} ({nm[host].hostname()})\n"
+            formatted_output += f"State: {nm[host].state()}\n"
             for proto in nm[host].all_protocols():
-                print(f"Protocol: {proto}\n")
+                formatted_output += f"Protocol: {proto}\n"
                 lport = nm[host][proto].keys()
                 for port in lport:
-                    print(f"Port: {port}\tState: {nm[host][proto][port]['state']}\n")
-                    print(f"Service: {nm[host][proto][port]['name']}\n")
+                    formatted_output += f"  Port: {port}\tState: {nm[host][proto][port]['state']}\n"
+                    formatted_output += f"  Service: {nm[host][proto][port]['name']}\n"
+                    if 'product' in nm[host][proto][port]:
+                        formatted_output += f"  Product: {nm[host][proto][port]['product']}\n"
+                    if 'version' in nm[host][proto][port]:
+                        formatted_output += f"  Version: {nm[host][proto][port]['version']}\n"
+                    if 'extrainfo' in nm[host][proto][port]:
+                        formatted_output += f"  Extra Info: {nm[host][proto][port]['extrainfo']}\n"
                     if 'script' in nm[host][proto][port]:
-                        print("Vulnerabilities:\n")
+                        formatted_output += "  Vulnerabilities:\n"
                         for script_name, output in nm[host][proto][port]['script'].items():
-                            print(f"  {script_name}: {output}\n")
+                            formatted_output += f"    {script_name}: {output}\n"
         
         with open(f'../results/nmap_scan_results_{target}.txt', 'w') as f:
-            f.write(str(scan_data))
+            f.write(formatted_output)
         
         print(f"Scan results for {target} saved to nmap_scan_results_{target}.txt\n")
 

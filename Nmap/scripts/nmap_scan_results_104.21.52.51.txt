@@ -1,0 +1,40 @@
+Host: 104.21.52.51 ()
+State: up
+Protocol: tcp
+  Port: 80	State: open
+  Service: http
+  Product: Cloudflare http proxy
+  Version: 
+  Extra Info: 
+  Vulnerabilities:
+    http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+    http-csrf: Couldn't find any CSRF vulnerabilities.
+    http-server-header: cloudflare
+    http-dombased-xss: Couldn't find any DOM based XSS.
+  Port: 443	State: open
+  Service: https
+  Product: cloudflare
+  Version: 
+  Extra Info: 
+  Vulnerabilities:
+    http-server-header: cloudflare
+    http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+    http-dombased-xss: Couldn't find any DOM based XSS.
+    http-csrf: Couldn't find any CSRF vulnerabilities.
+  Port: 8080	State: open
+  Service: http
+  Product: Cloudflare http proxy
+  Version: 
+  Extra Info: 
+  Vulnerabilities:
+    http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+    http-csrf: Couldn't find any CSRF vulnerabilities.
+    http-dombased-xss: Couldn't find any DOM based XSS.
+    http-server-header: cloudflare
+  Port: 8443	State: open
+  Service: https-alt
+  Product: cloudflare
+  Version: 
+  Extra Info: 
+  Vulnerabilities:
+    http-server-header: cloudflare
