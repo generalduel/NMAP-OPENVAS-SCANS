@@ -1,6 +1,17 @@
 import nmap
 import argparse
 from ipaddress import ip_network
+import socket
+
+def resolve_targets(targets):
+    resolved_ips = []
+    for target in targets:
+        try:
+            ip = socket.gethostbyname(target)
+            resolved_ips.append(ip)
+        except socket.gaierror:
+            print(f"Unable to resolve IP address for {target}")
+    return resolved_ips
 
 def nmap_scan(targets):
     nm = nmap.PortScanner()
@@ -32,8 +43,8 @@ def nmap_scan(targets):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Automate Nmap Vulnerability Scanning')
-    parser.add_argument('target_range', help='Target IP address or network range (e.g., 192.168.1.0/24)')
+    parser.add_argument('targets', nargs='+', help='Target IP address(es) or domain name(s)')
     args = parser.parse_args()
     
-    network = ip_network(args.target_range, strict=False)
-    nmap_scan([str(ip) for ip in network.hosts()])
+    resolved_ips = resolve_targets(args.targets)
+    nmap_scan(resolved_ips)

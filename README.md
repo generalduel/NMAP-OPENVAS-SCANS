@@ -56,6 +56,13 @@ To scan a range of IP addresses within a network, run the script with the networ
 python3 nmap_scan.py 192.168.1.0/24
 ```
 
+
+***Domain Scan***
+To scan a range of IP addresses within a network, run the script with the network range in CIDR notation:
+```bash
+python3 nmap_scan.py example.com
+```
+
 ### 4. Find the Results
 The results of the scan will be saved in the results directory with filenames in the format nmap_scan_results_<IP>.txt.
 ```bash
