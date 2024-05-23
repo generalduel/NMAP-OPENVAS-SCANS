@@ -12,6 +12,8 @@ Thumbs.db
 
 # Ignore Nmap scan results
 Nmap/results/*.txt
+Nmap/results/*.json
 
 # Ignore OpenVAS scan results
 OpenVAS/results/*.xml
+OpenVAS/results/*.json
