@@ -84,6 +84,8 @@ def nmap_scan(targets):
         with open(json_file_path, 'w') as f:
             json.dump(json_output, f, indent=4)
         
+        print(f"Scan results for {target} saved to nmap_scan_results_{target}.txt\n")
+        print(f"Scan results for {target} saved to nmap_scan_results_{target}.json\n")
         logging.info(f"Scan results for {target} saved to {text_file_path} and {json_file_path}")
 
 if __name__ == "__main__":
