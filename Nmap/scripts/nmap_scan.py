@@ -3,6 +3,7 @@ import argparse
 from ipaddress import ip_network
 import socket
 import json
+import os
 
 def resolve_targets(targets):
     resolved_ips = []
@@ -13,9 +14,12 @@ def resolve_targets(targets):
         except socket.gaierror:
             print(f"Unable to resolve IP address for {target}")
     return resolved_ips
-
+ 
 def nmap_scan(targets):
     nm = nmap.PortScanner()
+
+    if not os.path.exists('../results'):
+        os.makedirs('../results')
     
     for target in targets:
         print(f"Starting Nmap scan on {target}...\n")
