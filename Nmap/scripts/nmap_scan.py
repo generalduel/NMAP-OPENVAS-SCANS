@@ -19,7 +19,12 @@ def nmap_scan(targets):
     
     for target in targets:
         print(f"Starting Nmap scan on {target}...\n")
-        nm.scan(target, arguments='-sV --script=vuln')
+        try:
+            nm.scan(target, arguments='-sV --script=vuln')
+        except nmap.PortScannerError as e:
+            print(f"Nmap scan failed for {target}: {e}")
+            continue
+    
         
         scan_data = nm.analyse_nmap_xml_scan()
         
